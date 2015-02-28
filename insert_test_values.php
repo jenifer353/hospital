@@ -1,4 +1,7 @@
 <?php
+
+$enable_big_data = false;
+
 $db->new_user("Алла Якубова");
 $db->new_user("Андрій Яловицький");
 $db->new_user("Олег Лісовський");
@@ -22,4 +25,15 @@ $db->new_entry(4, 1, 2, time()-(60*60*24*43), -1);
 $db->new_entry(3, 5, 2, time()-(60*60*24*23), -1);
 $db->new_entry(2, 2, 1, time()-(60*60*24*2), -1);
 $db->new_entry(1, 3, 3, time()-(60*60*24*342), time()-(60*60*24*321));
+
+if ($enable_big_data) {
+  $i = 2000;
+  while ($i--) $db->new_user(md5(time()+mt_rand(0,200)));
+  $i = 200;
+  while ($i--) $db->new_person(md5(time()+mt_rand(201,300)),mt_rand(1000,20000));
+  $i = 500;
+  while ($i--) $db->new_hvoroba(md5(time()+mt_rand(320,500)));
+  $i = 20000;
+  while ($i--) $db->new_entry(mt_rand(0,2005), mt_rand(0,506), mt_rand(0,203), time()-mt_rand(0,10000), -1);
+}
 ?>
