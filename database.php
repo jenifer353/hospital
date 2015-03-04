@@ -114,6 +114,8 @@ class Database {
       istoria_hvorobi.id_hvorobi = hvorobi.id",
       'time_start, time_stop,
       istoria_hvorobi.id AS id,
+      persons.id AS person_id,
+      hvorobi.id AS hvoroba_id,
       hvorobi.name AS hvoroba,
       persons.name AS person');
   }

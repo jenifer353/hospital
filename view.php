@@ -88,9 +88,6 @@ function table_entrys($width = 12) {
   return new_table('<i class="fa fa-book"></i> Історія хвороби <button class="btn btn-success add" data-toggle="modal" data-target="#new_entry"><i class="fa fa-plus"></i></button>',
       [
         'id' => ['ID'],
-        'user_id' => false,
-        'person_id' => false,
-        'hvoroba_id' => false,
         'user' => ['<i class="fa fa-user"></i> Пацієнт','user','user_id'],
         'hvoroba' => ['<i class="fa fa-tint"></i> Хвороба','hvoroba','hvoroba_id'],
         'time_start' => ['<i class="fa fa-clock-o"></i> з'],
@@ -111,10 +108,10 @@ function table_entrys_by_user($data) {
   return new_table('<i class="fa fa-book"></i> Історія хвороби пацієнта '.$data['name'],
       [
         'id' => ['ID'],
-        'hvoroba' => ['<i class="fa fa-tint"></i> Хвороба','entry=hvoroba&id'],
+        'hvoroba' => ['<i class="fa fa-tint"></i> Хвороба','hvoroba','hvoroba_id'],
         'time_start' => ['<i class="fa fa-clock-o"></i> з'],
         'time_stop' => ['<i class="fa fa-clock-o"></i> по'],
-        'person' => ['<i class="fa fa-user-md"></i> Лікар','entry=person&id'],
+        'person' => ['<i class="fa fa-user-md"></i> Лікар','person','person_id'],
         'change' => ['<i class="fa fa-cog"></i> Дії', 
           [
             'remove' => ['entry', 'danger']
@@ -130,8 +127,6 @@ function table_users_by_person($data) {
   return new_table('<i class="fa fa-user"></i> Список кого лікує '.$data['name'].' <small> його зарплата '.$data['zarplata'].'грн</small>',
     [
       'id' => ['ID'],
-      'user_id' => false,
-      'hvoroba_id' => false,
       'name' => ['<i class="fa fa-user"></i> Ім\'я','user','user_id'],
       'time_start' => ['<i class="fa fa-clock-o"></i> з'],
       'hvoroba' => ['<i class="fa fa-tint"></i> Хвороба','hvoroba','hvoroba_id'],
@@ -150,8 +145,6 @@ function table_users_by_hvoroba($data) {
   return new_table('<i class="fa fa-user"></i> Перелік хворих на "'.$data['name'].'"',
     [
       'id' => ['ID'],
-      'user_id' => false,
-      'person_id' => false,
       'name' => ['<i class="fa fa-user"></i> Ім\'я','user','user_id'],
       'time_start' => ['<i class="fa fa-clock-o"></i> з'],
       'person' => ['<i class="fa fa-user-md"></i> Лікар','person','person_id'],
