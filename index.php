@@ -72,6 +72,7 @@ if ($add) {
       header('Location:./?p=entrys');
     }
   }
+  else $body .= error404();
 }
 elseif ($remove) {
   $remove = str_replace('remove_', '', $remove);

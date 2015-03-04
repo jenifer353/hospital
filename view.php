@@ -173,6 +173,6 @@ function error404($param = false) {
         return $msg;
     }
   }
-  else return $msg.'<h1>Нажаль нічого не знайдено <i class="fa fa-meh-o"></i></h1>';
+  else return $msg.'<h1>Нажаль сторінки не знайдено <i class="fa fa-meh-o"></i></h1>';
 }
 ?>
