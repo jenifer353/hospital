@@ -8,9 +8,9 @@ require_once 'view.php';
 dbg::log(print_r($_GET, true), 'success', '<b>$_GET[]</b>');
 dbg::log(print_r($_POST, true), 'success', '<b>$_POST[]</b>');
 
-require_once 'drop_all_tables.php';
-require_once 'create_tables.php';
-require_once 'insert_test_values.php';
+//require_once 'drop_all_tables.php';
+//require_once 'create_tables.php';
+//require_once 'insert_test_values.php';
 
 @$page = $_GET['p'] or false;
 @$search = $_GET['search'] or false;
@@ -104,6 +104,8 @@ if ($page) {
     $body .= table_entrys();
     set_active($page);
   }
+
+  else $body .= error404();
 }
 
 elseif ($search) {

@@ -158,7 +158,7 @@ function table_users_by_hvoroba($data) {
 }
 
 function error404($param = false) {
-  $msg = '<h2 class="text-warning">Помилка 404</h2>';
+  $msg = '<h2 class="text-warning"><i class="fa fa-warning"></i> Помилка 404</h2>';
   if ($param) {
     switch ($param) {
       case 'user':
@@ -173,6 +173,6 @@ function error404($param = false) {
         return $msg;
     }
   }
-  else return $msq.'<h1>Нажаль нічого не знайдено <i class="fa fa-meh-o"></i></h1>';
+  else return $msg.'<h1>Нажаль нічого не знайдено <i class="fa fa-meh-o"></i></h1>';
 }
 ?>

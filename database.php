@@ -1,7 +1,7 @@
 <?php
 class Database {
   public function __construct() {
-    $this->mysql = new mysqli("localhost", "root", "root", "test");
+    $this->mysql = new mysqli("localhost", "root", "", "test");
     $this->mysql->Query("SET NAMES 'utf8' COLLATE 'utf8_general_ci'");
   }
 
