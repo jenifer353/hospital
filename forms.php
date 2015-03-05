@@ -85,7 +85,7 @@ $data = [
   "remove_person" => [
     'action' => 'remove',
     'title' => "Видалення лікаря зі списку",
-    'input' => "Ви дійсно бажаєте лікаря <b>NULL</b>?"
+    'input' => "Ви дійсно бажаєте вилалити лікаря <b>NULL</b>?"
   ],
   "remove_hvoroba" => [
     'action' => 'remove',

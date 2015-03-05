@@ -8,9 +8,9 @@ require_once 'view.php';
 dbg::log(print_r($_GET, true), 'success', '<b>$_GET[]</b>');
 dbg::log(print_r($_POST, true), 'success', '<b>$_POST[]</b>');
 
-//require_once 'drop_all_tables.php';
-//require_once 'create_tables.php';
-//require_once 'insert_test_values.php';
+// require_once 'drop_all_tables.php';
+// require_once 'create_tables.php';
+// require_once 'insert_test_values.php';
 
 @$page = $_GET['p'] or false;
 @$search = $_GET['search'] or false;
@@ -39,7 +39,8 @@ if ($add) {
     $_POST['name'] = valid($_POST['name']);
     if ($_POST['name']) {
       $db->new_user($_POST['name']);
-      header('Location:./?p=users');
+      if ($_SERVER["HTTP_REFERER"]) header('Location:'.$_SERVER["HTTP_REFERER"]);
+      else header('Location:./?p=users');
     }
   }
   elseif ($add === 'new_person') {
@@ -47,14 +48,16 @@ if ($add) {
     $_POST['zarplata'] = valid($_POST['zarplata']);
     if ($_POST['name'] && $_POST['zarplata']) {
       $db->new_person($_POST['name'], $_POST['zarplata']);
-      header('Location:./?p=persons');
+      if ($_SERVER["HTTP_REFERER"]) header('Location:'.$_SERVER["HTTP_REFERER"]);
+      else header('Location:./?p=persons');
     }
   }
   elseif ($add === 'new_hvoroba') {
     $_POST['name'] = valid($_POST['name']);
     if ($_POST['name']) {
       $db->new_hvoroba($_POST['name']);
-      header('Location:./?p=hvorobi');
+      if ($_SERVER["HTTP_REFERER"]) header('Location:'.$_SERVER["HTTP_REFERER"]);
+      else header('Location:./?p=hvorobi');
     }
   }
   elseif ($add === 'new_entry') {
@@ -69,7 +72,8 @@ if ($add) {
 
     if ($_POST['user'] && $_POST['hvoroba'] && $_POST['time_start'] && $_POST['time_stop'] && $_POST['person']) {
       $db->new_entry($_POST['user'], $_POST['hvoroba'], $_POST['person'], $_POST['time_start'], $_POST['time_stop']);
-      header('Location:./?p=entrys');
+      if ($_SERVER["HTTP_REFERER"]) header('Location:'.$_SERVER["HTTP_REFERER"]);
+      else header('Location:./?p=entrys');
     }
   }
   else $body .= error404();
@@ -81,7 +85,8 @@ elseif ($remove) {
   $_POST['id'] = (int) valid($_POST['id']);
   if ($_POST['id']) {
     $db->remove($remove, $_POST['id']);
-    header('Location:./?p='.$p);
+    if ($_SERVER["HTTP_REFERER"]) header('Location:'.$_SERVER["HTTP_REFERER"]);
+    else header('Location:./?p='.$p);
   }
 }
 
