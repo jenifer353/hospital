@@ -14,7 +14,7 @@ function new_table($name, $names, $data, $width=12) {
         }
         if ($key === 'change') {
           $data[$i][$key] = '';
-          foreach ($value[1] as $k => $v) $data[$i][$key] .= '<button onclick="window.element=['.$data[$i][$value[2]].',this];" class="btn btn-xs btn-'.$v[1].' btn-change" data-toggle="modal" data-target="#'.$k.'_'.$v[0].'"><i class="fa fa-'.$k.'"></i><a></button>';
+          foreach ($value[1] as $k => $v) $data[$i][$key] .= '<button onclick="window.element=['.$data[$i][$value[2]].',this];" class="btn btn-xs btn-'.$v[1].' btn-change" data-toggle="modal" data-target="#'.$k.'_'.$v[0].'"><i class="fa fa-'.$k.'"></i></button>';
         }
         elseif (isset($value[1])) {
           $data[$i][$key] = '<a href="./?'.$value[1].'='.$data[$i][$value[2]].'">'.$data[$i][$key].'</a>';
@@ -132,7 +132,7 @@ function table_users_by_person($data) {
       'hvoroba' => ['<i class="fa fa-tint"></i> Хвороба','hvoroba','hvoroba_id'],
         'change' => ['<i class="fa fa-cog"></i> Дії', 
           [
-            'remove' => ['entry', 'danger', 'hvoroba_id']
+            'remove' => ['entry', 'danger']
           ]
         ]
     ],
@@ -150,7 +150,7 @@ function table_users_by_hvoroba($data) {
       'person' => ['<i class="fa fa-user-md"></i> Лікар','person','person_id'],
         'change' => ['<i class="fa fa-cog"></i> Дії', 
           [
-            'remove' => ['entry', 'danger', 'user_id']
+            'remove' => ['entry', 'danger']
           ]
         ]
     ],

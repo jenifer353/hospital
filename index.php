@@ -63,8 +63,8 @@ if ($add) {
   elseif ($add === 'new_entry') {
     @$_POST['user'] = valid($_POST['user']);
     @$_POST['hvoroba'] = valid($_POST['hvoroba']);
-    @$_POST['time_start'] = valid($_POST['time_start']);
-    @$_POST['time_stop'] = valid($_POST['time_stop']);
+    @$_POST['time_start'] = strtotime(valid($_POST['time_start']));
+    @$_POST['time_stop'] = strtotime(valid($_POST['time_stop']));
     @$_POST['person'] = valid($_POST['person']);
 
     if (empty($_POST['time_start'])) $_POST['time_start'] = time();
